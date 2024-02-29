@@ -1,0 +1,514 @@
+*{
+    font-family: "Roboto Light", sans-serif;
+}
+
+html,
+body,
+#root {
+    height: 100%;
+}
+
+html{
+    width: 100%;
+    height: 100%;
+
+}
+
+body{
+    padding: 0;
+    margin:0;
+    height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: rgba(0, 0, 0, 0.85);
+    line-height: 110%;
+    letter-spacing: 0;
+    font-weight: 700;
+}
+
+h6{
+    font-size: 17px;
+
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+body, #mapContainer{
+    margin: 0;
+    padding: 0;
+    height:100%;
+
+}
+
+
+
+#bigmapContainer {
+    /*display: flex;*/
+    width:100%;
+    height:calc(100%);
+
+
+    :global{
+        .mapboxgl-popup-content{
+            border-radius: 15px;
+
+        }
+    }
+}
+
+.container-of-card{
+
+}
+
+.listContainer_maplist{
+
+    position: fixed;
+    top: 20px;
+    z-index: 111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    /*animation-duration: 2s;*/
+    /*animation-timing-function:linear;*/
+    transition: transform .7s ease;
+
+
+}
+
+.listContainer_maplist.hide{
+    transform: translate(-600px, 0);
+}
+.listContainer_maplist.show{
+    transform: translate(10px, 0);
+}
+
+.listContainer_maplist .cardWrap{
+    width: 600px;
+    box-shadow: 0px 0px 10px 0px rgba(154,143,113,.6);
+}
+
+
+
+
+
+.listContainer_maplist .listBtn{
+    width: 60px;
+    height: 70px;
+    line-height: 70px;
+    background: #fff;
+    text-align: end;
+    border-radius: 0 100% 100% 0;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 700;
+    box-shadow: 0 0 12px 0 rgba(76 ,69 ,50 ,60%);
+    transform: translate(-30px, 0px);
+    z-index: -1;
+    padding-right: 6px;
+
+
+}
+
+.listContainer_maplist .listBtn:hover{
+    color: #854dff;
+}
+
+.listContainer_maplist .download{
+    margin-top: 20px;
+    background-color: #854dff;
+    border: 0px;
+    border-radius: 4px;
+}
+
+.listContainer_maplist :global{
+
+}
+
+.ant-checkbox-checked:hover{
+    border-color: #854dff;
+}
+.ant-checkbox-checked .ant-checkbox-inner{
+    background-color: #854dff;
+    border-color: #854dff;
+}
+
+
+.ant-drawer-header{
+    background-color: #854dff;
+}
+
+
+.ant-card {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: rgba(0, 0, 0, 0.85);
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5715;
+    list-style: none;
+    font-feature-settings: 'tnum', "tnum";
+    position: relative;
+    background: #fff;
+}
+
+.main-choices {
+    padding: 30px 45px;
+}
+
+.card-header-container{
+    padding: 0px;
+    width: 100%;
+}
+
+.card-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+}
+.home-page-btn{
+    /*width: 15%;*/
+    cursor: pointer;
+}
+
+.title-and-logo{
+    /*width: 70%;*/
+    display: flex;
+    flex-direction: row;
+}
+.highland-bike-icon{
+    padding-right: 0.4em;
+}
+.highland-bike-title{
+    display: flex;
+    font-size: 18px;
+    font-weight: bold;
+    width: 132px;
+    align-items: center;
+}
+.user-avatar-mini{
+    /*width: 15%;*/
+    display: flex;
+    align-items: center;
+    height: 100%;
+    cursor: pointer;
+
+}
+
+.avatar-background{
+    width: 3.7em;
+    height: 3.7em;
+    border-radius: 3.7em;
+    background-color: #d9d9d9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.avatar-mini{
+    width: 100%;
+    height: 100%;
+}
+
+.filter-selector-container{
+    width: 100%;
+    padding-top: 2em;
+}
+.filter-selector{
+    background-color: #dde1e6;
+    padding: 0.3em;
+    display: flex;
+    flex-direction: row;
+    border: none;
+    border-radius: 7px;
+    overflow: hidden;
+}
+
+/*.option-container{*/
+/*    */
+/*}*/
+.slider-option{
+    user-select: none;
+    flex: 1;
+    padding: 5px 8px;
+    border: none;
+    border-radius: 0.5em;
+    background-color: #dde1e6;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.slider-option:hover {
+    background-color: #dde1e6;
+}
+
+.slider-option.active {
+    background-color: #3EC9D2;
+    color: white;
+}
+
+.filter-options-list-container{
+
+}
+
+.filter-options-list{
+    display: block;
+}
+
+.filter-options-item{
+    display: flex;
+    padding: 7px 5px 7px;
+    border-bottom: solid 1px;
+    border-color: #dde1e6;
+    align-items: center;
+    text-align: left;
+
+}
+
+.filter-option-icon{
+    padding-right: 10px;
+}
+
+.departure-menu-icon{
+    margin-left: auto;
+    cursor: pointer;
+    padding-right: 0.5em;
+    transition: transform 0.1s ease-in-out;
+    /*justify-self:flex-end;*/
+}
+
+.menu-container{
+    position: relative;
+    /*width: 100%;*/
+
+}
+
+.departure-content{
+    display: none;
+    position:absolute;
+    background-color: white;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    width: 100%;
+}
+
+.departure-content a{
+    color: black;
+    text-decoration: none;
+    padding: 5px;
+    display: block;
+}
+
+.departure-content a:hover{
+    background-color: #f2f4f8;
+}
+
+.departure-menu:hover{background-color: #f2f4f8}
+
+.difficulty-options-list{
+    overflow-x: auto;
+    display: flex;
+    margin-left: auto;
+    gap: 0.5em;
+
+}
+
+.difficulty-options-list div{
+    user-select: none;
+    color: #ffffff;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 1em;
+    border-style: solid;
+    border-width: 2px;
+    cursor: pointer;
+}
+
+.difficulty-options-list .easy-option{
+    background-color: #3EC9D2;
+}
+
+.difficulty-options-list *.hide{
+    display: none;
+}
+
+
+
+.difficulty-options-list .medium-option{
+    background-color: #BDD23E;
+}
+
+.difficulty-options-list .hard-option{
+    background-color: #D2853E;
+}
+
+.difficulty-options-list .professional-option{
+    background-color: #D23E3E;
+}
+
+.difficulty-options-list .difficulty-filter-option.highlighted{
+    border-color: black;
+}
+
+.routes-list-container{
+
+    padding-top: 2em;
+
+}
+.routes-list{
+    overflow-y:auto;
+    height: 500px;
+}
+
+.routes-list::-webkit-scrollbar {
+    width: 4px;
+
+}
+
+.routes-list::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+.routes-list::-webkit-scrollbar-thumb {
+    background: #dde1e6;
+}
+
+.routes-list::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+.route-item{
+    display: flex;
+    height: 6em;
+    padding: 10px;
+    margin: 10px 0;
+    width:100%;
+    border: solid 1px #dde1e6;
+    box-shadow: #dde1e6 4px 4px 6.5px;
+    /*box-shadow: ;*/
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+
+.route-item.hide{
+    display: none;
+}
+
+.route-img{
+    margin-right: 10px;
+    box-sizing: border-box;
+    width: 62px;
+    height: 62px;
+}
+
+.chosen-route-details{
+    display: none;
+    padding-top: 2em;
+}
+.information-header{
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+.return-btn{
+    cursor: pointer;
+    position: absolute;
+    top:0.5em;
+    left:0.5em;
+
+}
+.chosen-route-title-container{
+    width: 19em;
+    /*height: 9em;*/
+    padding: 2em 1em;
+    border: solid 1px #dde1e6;
+    box-shadow: #dde1e6 4px 4px 6.5px;
+    /*box-shadow: ;*/
+    border-radius: 10px;
+}
+
+.chosen-route-info{
+    padding-top: 2em;
+}
+.info-title{
+    text-align: center;
+    border-radius: 10px;
+    background-color: #dde1e6;
+    padding: 5px 5px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.info-item{
+    display: flex;
+    align-items: center;
+    border-bottom: solid 1px;
+    border-color: #dde1e6;
+    padding: 0.5em 0.5em;
+    white-space: nowrap;
+}
+
+.info-item .item-detail{
+    margin-left: auto;
+    text-align: right;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.item-title{
+    text-align: right;
+}
+
+.elevation-graph-container{
+    /*display: flex;*/
+
+
+
+    /*padding-left: 30px;*/
+}
+
+.elevation-graph{
+    width: 520px;
+    height: 350px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

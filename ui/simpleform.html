@@ -1,0 +1,33 @@
+<!-- 
+A very simple input form View template:
+note that the form method is POST, and the action
+is the URL for the route that handles form input.
+ -->
+<head>
+  <title>Simple form</title>
+  <link rel="stylesheet" type="text/css" href="ui/simpleform.css">
+</head>
+<body>
+<div id="text1">
+  <p >This is a simple form</p>
+</div>
+
+<form id="form1" name="form1" method="post" action="{{ @BASE }}/simpleform">
+
+  <div id="guidance">Enter Name and Colour:</div>
+  <div id="form_items">
+    <input name="name" type="text" placeholder="Steve" id="name" size="50" />
+    <input name="colour" type="text" placeholder="red" id="colour" size="50" />
+    <input name="age" type="number" placeholder=16 id="age" size="10" />
+
+
+    <p id="submit_button">
+      <input id="submit" type="submit" name="Submit" value="Submit" />
+    </p>
+  </div>
+
+
+</form>
+
+</body>
+

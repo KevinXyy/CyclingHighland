@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>User Login</title>
+    <link rel="stylesheet" type="text/css" href="ui/login.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('form').submit(function(event) {
+                event.preventDefault(); // Prevent default form submit behavior
+
+                var username = $('input[name="username"]').val();
+                var password = $('input[name="password"]').val();
+                // Implemented with reference to the example ajax code in FFF-SimplaAjaxExample
+                $.ajax({
+                    type: "POST",
+                    url: "{{@BASE}}/login",
+                    data: JSON.stringify({ username: username, password: password }),
+                    contentType: "application/json",
+                    dataType: "json",
+                    success: function(response) {
+                        if (response.success) {
+                            window.location.href = '{{@BASE}}/mapbox'; // Login succeeded, redirect to the main page
+                        } else {
+                            alert(response.message); // Login failed, show error message
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("Error: " + error);
+                        alert("Login Request Failed！");
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="wrap">
+    <div class="table-container">
+        <h1>Log In</h1>
+        <form method="post">
+            <div>
+                <div class="table-item">
+                    <div class="item-name" >Username</div>
+                    <input type="text" class="txt" name="username" placeholder="Enter your username" required/>
+                </div>
+                <div class="table-item">
+                    <div class="item-name">Password</div>
+                    <input type="password" class="txt" name="password" placeholder="Enter your password" required/>
+                </div>
+                <div class="buttons-container">
+                    <input class="login-btn" type="submit" value="Log In"/>
+<!--                        <input class="btn" type="reset" value="Reset"/>-->
+                </div>
+
+                <div class="div_line">
+
+                </div>
+                <div class="register-text">
+                    No account yet? <a href="register">Sign Up</a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="picture">
+<!--        <figure>-->
+            <img src="img/login.jpg"  alt=""/>
+            <div class="fig-caption">© 2018 by <a href="https://unsplash.com/@vaccinium">Dmitrii Vaccinium</a>. Published on <a href="https://unsplash.com/photos/man-riding-bike-on-cliff-at-daytime-9qsK2QHidmg">Unsplash</a>.</div>
+<!--        </figure>-->
+
+    </div>
+
+</div>
+</body>
+</html>

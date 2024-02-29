@@ -1,0 +1,113 @@
+body{
+    margin: 0;
+    height: 100%;
+}
+#header{
+    padding: 8px;
+    width: 100%;
+    background-color: black;
+    position: fixed;
+
+}
+
+#nav{
+    width: 100%;
+    height: 4em;
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#navbar{
+    width: 25%;
+    /*background-color: black;*/
+    display: flex;
+    flex-direction: row;
+}
+
+#navbar a{
+    /*height:100%;*/
+    width: 33.3%;
+    /*display: block;*/
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+}
+
+
+
+#navbar a:hover{
+    background-color: darkgray;
+
+}
+
+#accountbar{
+    width: 10%;
+    display: flex;
+    flex: 0 0 auto;
+    justify-content: flex-end;
+}
+
+
+#accountbar a{
+    /*height:100%;*/
+    width: 33.3%;
+    /*display: block;*/
+    padding: 20px;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+
+}
+
+#accountbar a:hover{
+    background-color: darkgray;
+    color: #39c5bb;
+
+}
+/*wrapper{*/
+/*    display: block;*/
+/*    overflow-y: auto;*/
+
+/*}*/
+#main{
+    display: flex;
+    flex-direction: column;
+    /*position: fixed;*/
+    width: 100%;
+    height: 90%;
+
+}
+
+#background_pic{
+    display: flex;
+
+    height: 350px;
+    width: 100%;
+    background: url("../img/miku.jpg") no-repeat;
+    background-size: cover;
+
+    align-items: center;
+}
+#background_pic h1{
+    width: 100%;
+    font-size: 3em;
+    text-align: center;
+}
+#map_container{
+    display: flex;
+    justify-content: center;
+}
+
+#map{
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+
+
+}
+
+
+

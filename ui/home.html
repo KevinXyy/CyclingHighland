@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" type="text/css" href="ui/home.css">
+
+
+</head>
+<body>
+    <div id="header">
+        <nav id="nav">
+            <div id="navbar">
+                <a href="home"> HOME </a>
+                <a href="ui/home.html"> CONTACT </a>
+                <a href="ui/home.html"> ABOUT </a>
+
+            </div>
+
+            <div id="accountbar">
+                <a href="ui/home.html"> Sign up</a>
+                <a href="ui/home.html"> Login</a>
+            </div>
+        </nav>
+    </div>
+
+        <div id="main">
+            <div id="background_pic">
+                <h1> Welcome to DeepDark Fantasy!</h1>
+            </div>
+            <div id="map_container">
+                <div id='map' style='width: 90%; height: 700px;'></div>
+            </div>
+
+            <script>
+                // TO MAKE THE MAP APPEAR YOU MUST
+                // ADD YOUR ACCESS TOKEN FROM
+                // https://account.mapbox.com
+                mapboxgl.accessToken = 'pk.eyJ1IjoieXV5YW5neGluIiwiYSI6ImNsczkzOXhjMTAzOWwyaXBsZjR1OG8wbmMifQ.WoIX7izTdmT5fsi8lJCcug';
+                const map = new mapboxgl.Map({
+                    container: 'map', // container ID
+                    style: 'mapbox://styles/mapbox/streets-v12', // style URL
+                    center: [-5.81, 57.43], // starting position [lng, lat]
+                    zoom: 10, // starting zoom
+                });
+
+                map.on('load', () => {
+                    let route_data = {{@route_data | raw}}
+                    map.addSource('route', {
+                        'type': 'geojson',
+                        'data': {
+                            'type': 'Feature',
+                            'properties': {},
+                            'geometry': {
+                                'type': 'LineString',
+                                'coordinates': route_data
+                        }
+                    }
+                });
+                    map.addLayer({
+                        'id': 'route',
+                        'type': 'line',
+                        'source': 'route',
+                        'layout': {
+                            'line-join': 'round',
+                            'line-cap': 'round'
+                        },
+                        'paint': {
+                            'line-color': 'red',
+                            'line-width': 3
+                        }
+                    });
+                });
+
+
+
+            </script>
+        </div>
+
+
+</body>
+</html>

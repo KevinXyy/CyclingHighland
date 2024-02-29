@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>User Registration</title>
+  <link rel="stylesheet" type="text/css" href="ui/register.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('form').submit(function(event) {
+        event.preventDefault(); // Prevent default form submit behavior
+
+        // Collect data from the form
+        var formData = {
+          username: $('input[name="username"]').val(),
+          password: $('input[name="password"]').val(),
+          confirm_password: $('input[name="confirm_password"]').val()
+        };
+
+        // Sending AJAX request to the server
+        // Implemented with reference to the example ajax code in FFF-SimplaAjaxExample
+        $.ajax({
+          type: 'POST',
+          url: '{{@BASE}}/register', // Make sure the URL is identical with the one in the server api
+          data: formData,
+          dataType: 'json',
+          success: function(response) {
+            if (response.success) {
+              alert('Registration Successful！');
+              window.location.href = '{{@BASE}}/login'; // Redirect to login page after successfully registered the account
+            } else {
+              alert(response.message); // Displat the Error message from the Server
+            }
+          },
+          error: function() {
+            alert('Registration Failed！');
+          }
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+<div class="wrap">
+  <div class="table-container">
+    <h1>Sign Up</h1>
+    <form method="post">
+      <div class="table-item">
+        <div class="item-name">Username: </div>
+        <div><input type="text" class="txt" name="username" placeholder="Enter your username" required/></div>
+        <div class="table-item">
+          <div class="item-name">Password: </div>
+          <div><input type="password" class="txt" name="password" placeholder="Enter your password" required/></div>
+        </div>
+        <div>
+          <div class="item-name">Confirm your password:</div>
+          <div><input type="password" class="txt" name="confirm_password" placeholder="Re-enter your password" required/></div>
+        </div>
+
+        <div class="buttons-container">
+          <input class="signup-btn" type="submit" value="Sign Up"/>
+<!--            <input class="btn" type="reset" value="Reset"/>-->
+        </div>
+
+        <div class="div_line"></div>
+
+        <div class="login-text">
+          Already have an account? <a href="login">Log in</a>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="picture">
+    <img src="img/signup.jpg"  alt=""/>
+    <div class="fig-caption">© 2020 by <a href="https://unsplash.com/@kic_mike">Michael Scott</a>. Published on <a href="https://unsplash.com/photos/gray-road-in-the-middle-of-green-mountains-tVKHOWpseLM">Unsplash</a>.</div>
+  </div>
+
+</div>
+</body>
+</html>
